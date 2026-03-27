@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132162742274071"
+     crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1f1f1f;
+      --accent: #e8ff47;
+      --text: #f0f0f0;
+      --muted: #555;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    header span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .player-wrap {
+      width: 100%;
+      max-width: 900px;
+      background: #000;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 0 1px var(--border), 0 30px 80px rgba(0,0,0,0.7);
+      margin-bottom: 32px;
+      aspect-ratio: 16/9;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #000;
+      position: absolute;
+      top: 0; left: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+
+    .placeholder svg { opacity: 0.3; }
+    .placeholder.hidden { opacity: 0; pointer-events: none; }
+
+    video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      background: #000;
+    }
+
+    .controls {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 18px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover { background: #1a1a1a; border-color: #333; }
+    .btn:active { transform: scale(0.97); }
+
+    .btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0a0a0a;
+    }
+
+    .btn .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .btn .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.6;
+    }
+
+    .btn.active .label { opacity: 0.5; }
+
+    .btn.active .num::after {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #0a0a0a;
+      border-radius: 50%;
+      margin-left: 6px;
+      vertical-align: middle;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.6); }
+    }
+
+    .hint {
+      margin-top: 20px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 500px) {
+      .btn .num { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>WATCH</h1>
+    <span>3 videos</span>
+  </header>
+
+  <div class="player-wrap">
+    <div class="placeholder" id="placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      Select a video below
+    </div>
+    <video id="player" controls playsinline></video>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="btn1" onclick="play(1)">
+      <span class="num">01</span>
+      <span class="label">Part One</span>
+    </button>
+    <button class="btn" id="btn2" onclick="play(2)">
+      <span class="num">02</span>
+      <span class="label">Part Two</span>
+    </button>
+    <button class="btn" id="btn3" onclick="play(3)">
+      <span class="num">03</span>
+      <span class="label">Part Three</span>
+    </button>
+  </div>
+
+  <p class="hint">Use the fullscreen button inside the player for fullscreen</p>
+
+  <script>
+    const videos = {
+      1: 'https://archive.org/download/part2_20260326/part1.mp4',
+      2: 'https://archive.org/download/part2_20260326/part2.mp4',
+      3: 'https://archive.org/download/part2_20260326/part3.mp4'
+    };
+
+    const player = document.getElementById('player');
+    const placeholder = document.getElementById('placeholder');
+    let current = 0;
+
+    function play(n) {
+      document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn' + n).classList.add('active');
+      if (current === n) return;
+      current = n;
+      player.src = videos[n];
+      player.load();
+      player.play().catch(() => {});
+      placeholder.classList.add('hidden');
+    }
+
+    // auto advance
+    player.addEventListener('ended', () => {
+      if (current < 3) play(current + 1);
+    });
+  </script>
+
+</body>
+</html>
