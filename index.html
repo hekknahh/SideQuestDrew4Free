@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SideQuest Drew 4 Free — Epstein Island Infiltration</title>
+  <meta name="description" content="A raw, unfiltered documentary series following Drew as he infiltrates Jeffrey Epstein's private island. Watch the full 3-part series free." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132162742274071"
+     crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1f1f1f;
+      --accent: #e8ff47;
+      --text: #f0f0f0;
+      --muted: #555;
+      --muted2: #888;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+      overflow-x: hidden;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      color: var(--muted2);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 16px;
+    }
+
+    .hero-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted2);
+      max-width: 640px;
+      margin-bottom: 12px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-meta-item .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    .hero-meta-item .value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* PLAYER */
+    .player-wrap {
+      width: 100%;
+      max-width: 900px;
+      background: #000;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 0 1px var(--border), 0 30px 80px rgba(0,0,0,0.7);
+      margin-bottom: 16px;
+      aspect-ratio: 16/9;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #000;
+      position: absolute;
+      top: 0; left: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+
+    .placeholder svg { opacity: 0.3; }
+    .placeholder.hidden { opacity: 0; pointer-events: none; }
+
+    video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      background: #000;
+    }
+
+    /* CONTROLS */
+    .controls {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 18px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .btn:hover { background: #1a1a1a; border-color: #333; }
+    .btn:active { transform: scale(0.97); }
+
+    .btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0a0a0a;
+    }
+
+    .btn .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .btn .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.6;
+    }
+
+    .btn .desc {
+      font-size: 0.7rem;
+      opacity: 0.5;
+      line-height: 1.4;
+    }
+
+    .btn.active .label, .btn.active .desc { opacity: 0.5; }
+
+    .btn.active .num::after {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #0a0a0a;
+      border-radius: 50%;
+      margin-left: 6px;
+      vertical-align: middle;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.6); }
+    }
+
+    /* AD SLOT */
+    .ad-slot {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 48px;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* EPISODE GUIDE */
+    .section {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .episodes {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .episode {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .episode:hover { border-color: #333; }
+
+    .episode-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      opacity: 0.4;
+    }
+
+    .episode-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .episode-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--muted2);
+    }
+
+    .episode-tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 3px 8px;
+      border-radius: 2px;
+      opacity: 0.7;
+    }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      width: 100%;
+      max-width: 900px;
+      padding: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 48px;
+    }
+
+    .about-strip h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+    .about-strip p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted2);
+      margin-bottom: 12px;
+    }
+
+    .about-strip a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hint {
+      margin-bottom: 16px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      width: 100%;
+      max-width: 900px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    footer a {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 500px) {
+      .btn .num { font-size: 1.5rem; }
+      .episode { grid-template-columns: 40px 1fr; gap: 12px; }
+      .hero-meta { flex-wrap: wrap; gap: 16px; }
+      .about-strip { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">SIDEQUEST</a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-tag">Exclusive Documentary Series</span>
+    <h1>DREW INFILTRATES<br><span>EPSTEIN ISLAND</span></h1>
+    <p>What happens when one man decides to do what investigators wouldn't? Drew goes where few have dared — Little St. James, Jeffrey Epstein's private island in the US Virgin Islands — and films every second of it.</p>
+    <p>No script. No production budget. Just Drew and his crew with cameras, capturing raw, unfiltered footage of one of the most infamous private islands in history, now abandoned and decaying.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Episodes</span>
+        <span class="value">3 Parts</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Location</span>
+        <span class="value">Little St. James, USVI</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Format</span>
+        <span class="value">Documentary / Vlog</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Cost</span>
+        <span class="value">100% Free</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="player-wrap">
+    <div class="placeholder" id="placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      Select a part below to start watching
+    </div>
+    <video id="player" controls playsinline></video>
+  </div>
+
+  <p class="hint">Use the fullscreen button inside the player for fullscreen</p>
+
+  <div style="width:100%;max-width:900px;margin-bottom:24px;padding:16px 20px;background:#1a0000;border:1px solid #5a0000;border-radius:4px;display:flex;gap:12px;align-items:flex-start;">
+    <span style="font-size:1.2rem;line-height:1;">⚠️</span>
+    <p style="font-size:0.8rem;line-height:1.6;color:#ff9090;margin:0;">
+      <strong style="color:#ffbbbb;letter-spacing:0.05em;">SAFETY WARNING:</strong> While watching, you may see pop-ups appear in your browser. Do not click on them, do not download anything, and do not call any phone numbers they display. These are scam ads from third-party sources and are not affiliated with this site. Simply close any pop-up windows that appear and continue watching.
+    </p>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="btn1" onclick="play(1)">
+      <span class="num">01</span>
+      <span class="label">Part One</span>
+      <span class="desc">The approach & arrival</span>
+    </button>
+    <button class="btn" id="btn2" onclick="play(2)">
+      <span class="num">02</span>
+      <span class="label">Part Two</span>
+      <span class="desc">Inside the compound</span>
+    </button>
+    <button class="btn" id="btn3" onclick="play(3)">
+      <span class="num">03</span>
+      <span class="label">Part Three</span>
+      <span class="desc">The full exploration</span>
+    </button>
+  </div>
+
+  <!-- AD SLOT -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;max-width:900px;"
+         data-ad-client="ca-pub-3132162742274071"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- EPISODE GUIDE -->
+  <div class="section">
+    <h2 class="section-title">Episode Guide</h2>
+    <div class="episodes">
+
+      <div class="episode" onclick="play(1)">
+        <div class="episode-num">01</div>
+        <div>
+          <div class="episode-title">Part One — The Approach</div>
+          <p class="episode-desc">Drew begins his journey to Little St. James, the 75-acre private island in the US Virgin Islands once owned by convicted sex offender Jeffrey Epstein. This episode covers the planning, the boat approach, and the first moments setting foot on the island's shores. The island has sat largely abandoned since Epstein's death in 2019, with its structures slowly being reclaimed by nature. Drew and his crew document the eerie silence, the overgrown paths, and the remnants of what was once a lavish private compound that hosted some of the world's most powerful people.</p>
+          <span class="episode-tag">Start Here</span>
+        </div>
+      </div>
+
+      <div class="episode" onclick="play(2)">
+        <div class="episode-num">02</div>
+        <div>
+          <div class="episode-title">Part Two — Inside the Compound</div>
+          <p class="episode-desc">In Part Two, Drew ventures deeper into the island's interior, exploring the remaining structures of Epstein's compound. The island's main residence, guesthouses, and surrounding buildings are documented in raw detail. Drew examines what's left behind — the physical evidence of a place that was at the center of one of the biggest scandals in modern history. The footage is unscripted and unfiltered, giving viewers an unprecedented look at a location that has never been publicly documented in this way.</p>
+          <span class="episode-tag">Part 2 of 3</span>
+        </div>
+      </div>
+
+      <div class="episode" onclick="play(3)">
+        <div class="episode-num">03</div>
+        <div>
+          <div class="episode-title">Part Three — The Full Exploration</div>
+          <p class="episode-desc">The final part of the series takes Drew across the entire island, covering areas not seen in earlier episodes. From the infamous blue-and-white striped temple structure to the network of pathways connecting the compound's buildings, everything is captured on camera. Drew reflects on what the island represents — a symbol of unchecked power, wealth, and the failure of accountability — and what it feels like to stand in a place that so many powerful people tried to keep hidden from the world. The series closes with Drew's raw, unscripted thoughts on the experience alongside his crew.</p>
+          <span class="episode-tag">Series Finale</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <h2>What Is SideQuest?</h2>
+    <p>SideQuest is Drew's independent documentary and adventure series, built on a simple idea: go where others won't, film what others don't, and show it all for free. No paywalls, no subscriptions, no gatekeeping.</p>
+    <p>Little St. James Island — known widely as "Epstein Island" — is one of the most talked-about and least-documented locations in the world. After years of speculation, sealed court documents, and powerful people avoiding accountability, Drew decided someone should just go and show people what's actually there.</p>
+    <p>This three-part series is the result of that mission. Raw footage, real reactions, and zero filters.</p>
+    <a href="about.html">Learn more about Drew and SideQuest →</a>
+  </div>
+
+  <footer>
+    <p>© 2026 SideQuest. All rights reserved.</p>
+    <div style="display:flex;gap:20px;">
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    const videos = {
+      1: 'https://archive.org/download/part2_20260326/part1.mp4',
+      2: 'https://archive.org/download/part2_20260326/part2.mp4',
+      3: 'https://archive.org/download/part2_20260326/part3.mp4'
+    };
+
+    const player = document.getElementById('player');
+    const placeholder = document.getElementById('placeholder');
+    let current = 0;
+
+    function play(n) {
+      document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn' + n).classList.add('active');
+      if (current === n) return;
+      current = n;
+      player.src = videos[n];
+      player.load();
+      player.play().catch(() => {});
+      placeholder.classList.add('hidden');
+    }
+
+    player.addEventListener('ended', () => {
+      if (current < 3) play(current + 1);
+    });
+  </script>
+
+</body>
+</html>
